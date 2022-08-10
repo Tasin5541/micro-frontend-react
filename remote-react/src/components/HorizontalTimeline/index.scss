@@ -1,0 +1,130 @@
+$active-bg: #1b3a7e;
+$completed-bg: #32557f;
+$not-completed-bg: #ccc;
+
+@mixin front-arrow($bg-color) {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: -25px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 25px solid $bg-color;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+
+@mixin back-arrow {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 25px solid #ffffff;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+
+.arrow-pointer-body {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  padding-left: 25px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.active {
+    background: $active-bg;
+  }
+
+  &.completed {
+    background: $completed-bg;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.not-completed {
+    background: $not-completed-bg;
+  }
+}
+
+.first-step {
+  .arrow-pointer {
+    &.active {
+      &:before {
+        @include front-arrow($active-bg);
+      }
+    }
+
+    &.completed {
+      &:before {
+        @include front-arrow($completed-bg);
+      }
+    }
+  }
+}
+
+.last-step {
+  .arrow-pointer {
+    &:after {
+      @include back-arrow;
+    }
+  }
+}
+
+.middle-step {
+  .arrow-pointer {
+    &.active {
+      &:after {
+        @include back-arrow;
+      }
+
+      &:before {
+        @include front-arrow($active-bg);
+      }
+    }
+
+    &.completed {
+      &:after {
+        @include back-arrow;
+      }
+
+      &:before {
+        @include front-arrow($completed-bg);
+      }
+    }
+
+    &.not-completed {
+      &:after {
+        @include back-arrow;
+      }
+
+      &:before {
+        @include front-arrow($not-completed-bg);
+      }
+    }
+  }
+}
+
+.step-label {
+  margin-left: 5px;
+}
+
+.MuiStepLabel-iconContainer {
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .MuiStep-horizontal {
+    padding-left: 1px !important;
+    padding-right: 0 !important;
+  }
+  .step-label {
+    display: none;
+  }
+}
