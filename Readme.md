@@ -20,25 +20,16 @@ A monorepo to showcase micro frontend architecture between 2 different libraries
      yarn install
      yarn start
      ```
-   ```
-
-   ```
 3. Open another terminal and copy paste the following codes
    - ```bash
      cd remote-solidjs
      yarn install
      yarn start
      ```
-   ```
-
-   ```
 4. Open another terminal and copy paste the following codes
    - ```bash
      cd host-react
      yarn install
      yarn start
      ```
-   ```
-
-   ```
 5. Go to `http://localhost:8080/` on browser
