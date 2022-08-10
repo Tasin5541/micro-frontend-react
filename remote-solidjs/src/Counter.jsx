@@ -6,7 +6,12 @@ export default () => {
   return (
     <div class="bg-blue-900 text-white p-5">
       <div>Count = {count()}</div>
-      <button onClick={() => setCount(count() + 1)}>Add One</button>
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={() => setCount(count() + 1)}
+      >
+        Add One
+      </button>
     </div>
   );
 };
